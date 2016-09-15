@@ -1,0 +1,125 @@
+/* 
+ * 	Core Owl Carousel CSS File
+ *	v1.3.3
+ */
+
+/* clearfix */
+.owl-carousel .owl-wrapper:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+/* display none until init */
+.owl-carousel{
+	display: none;
+	position: relative;
+	width: 100%;
+	-ms-touch-action: pan-y;
+}
+.owl-carousel .owl-wrapper{
+	display: none;
+	position: relative;
+	-webkit-transform: translate3d(0px, 0px, 0px);
+}
+.owl-carousel .owl-wrapper-outer{
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+.owl-carousel .owl-wrapper-outer.autoHeight{
+	-webkit-transition: height 500ms ease-in-out;
+	-moz-transition: height 500ms ease-in-out;
+	-ms-transition: height 500ms ease-in-out;
+	-o-transition: height 500ms ease-in-out;
+	transition: height 500ms ease-in-out;
+}
+	
+.owl-carousel .owl-item{
+	float: left;
+}
+.owl-controls .owl-page{
+	cursor:  pointer;
+}
+
+.owl-controls .owl-pagination{
+	width: 300px;
+	height: 235px;
+	position: relative;
+	top: -457px;
+	left: -473px;
+	overflow: scroll;
+}
+
+.owl-theme .owl-controls .owl-page{
+	zoom: 1;
+	border-bottom: 3px dashed #6f9623;
+}
+
+.owl-theme .owl-controls .owl-page span{
+	display: block;
+	line-height: 2.2em;
+	font-size: 0.85em;
+	color: #669933;
+ 
+	position: relative;
+
+	font-family: Microsoft YAHEI;
+}
+
+.owl-theme .owl-controls .active span{
+	font-weight: bolder;
+	color: #FF9100;
+}
+
+.owl-theme .owl-controls .owl-page span{
+	cursor:pointer;
+	/*position:relative;*/
+	/*top: -450px;*/
+}
+
+.owl-controls .owl-buttons div{
+	cursor: pointer;
+	position: absolute;
+	top: 450px;
+	width: 50;
+	height: 55;
+}
+
+.owl-buttons .owl-prev{
+	background: url(../images/poster-prev.png) no-repeat;
+  	left: -90px;
+}
+
+.owl-buttons .owl-next{
+	background: url(../images/poster-next.png) no-repeat;
+	right: -90px;
+}
+
+.owl-controls {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* mouse grab icon */
+.grabbing { 
+    cursor:url(grabbing.png) 8 8, move;
+}
+
+/* fix */
+.owl-carousel  .owl-wrapper,
+.owl-carousel  .owl-item{
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility:    hidden;
+	-ms-backface-visibility:     hidden;
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+}
+

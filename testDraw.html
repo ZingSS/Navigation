@@ -1,0 +1,84 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<script src="js/jquery-2.1.3.min.js"type="text/javascript"></script>
+	<script type="text/javascript">
+	$(function(){
+		var p = [[100,300], [200,300], [200,50],[60,50]];
+		var q = [[400,300], [200,300], [200,400],[30,400]];
+		// drawMap(p);
+		var arr = {3 : p, 2: q};
+		drawMap(arr[2]);
+		showSearchRes(arr);
+	})
+
+	function showSearchRes(arr){
+		var isFloors = new Array(false, false, false, false, false);
+		// 要判断显示哪几个楼层
+		for (var key in arr) {
+			isFloors[key-1] = true;
+		};
+		alert(isFloors);
+	}	
+
+	function drawMap(p){
+		// 画线
+		for (var j = 1; j < p.length; j++) {
+			var lineDiv = "<div class='line'></div>";
+			$("body").append(lineDiv);
+			var $line = $("body .line").eq(j-1);
+			// 如果x相等
+			var begin, end;
+			if (p[j][0] == p[j-1][0]) {
+				if (p[j][1] < p[j-1][1]) {
+					begin = p[j];
+					end = p[j-1];
+				}
+				else {begin = p[j-1]; end = p[j];}
+
+				$line.css({"height": end[1] - begin[1]});
+			}
+			// 如果y相等
+			else if (p[j][1] == p[j-1][1]) {
+				if (p[j][0] < p[j-1][0]) {
+					begin = p[j];
+					end = p[j-1];
+				}
+				else {begin = p[j-1]; end = p[j];}
+				$line.css({"width": end[0] - begin[0]});
+			}
+
+			$line.css({"left": begin[0], "top":begin[1]});
+
+		}
+		// 画点
+		for (var i = 0; i < p.length; i++) {
+			var pointDiv = "<div class='point'></div>";
+			$("body").append(pointDiv);
+			$("body .point").eq(i).css({"left":p[i][0], "top":p[i][1]});
+		};
+	}
+
+	</script>
+	<style type="text/css">
+	img{
+		border: 1px solid #888;
+	}
+	.point{
+		position: absolute;
+		background: #888;
+		width: 5px;
+		height: 5px;
+	}
+	.line{
+		position: absolute;
+		background: #333;
+		width: 5px;
+		height: 5px;
+	}
+	</style>
+</head>
+<body>
+	<img src="images/map-1.png">
+</body>
+</html>
